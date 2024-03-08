@@ -37,7 +37,7 @@
                                 <td><i class="fab fa-angular fa-lg text-danger me-3"></i>
                                     <strong>{{ $product->name }}</strong>
                                 </td>
-                                <td>{{ $product->price }}</td>
+                                <td>Rp. {{ number_format($product->price, 0, ',', '.') }}</td>
                                 <td>{{ $product->stock }}</td>
                                 <td>{{ $product->category }}</td>
                                 <td><img src="{{ $product->image }}" alt="image" height="30"></td>
