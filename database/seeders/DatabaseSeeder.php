@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Fernand',
             'email' => 'fernand@gmail.com',
             'email_verified_at' => now(),
+            'phone' => fake()->phoneNumber(),
             'password' => Hash::make('zxczxc'),
             'remember_token' => Str::random(10),
         ]);

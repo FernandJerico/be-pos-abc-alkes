@@ -24,6 +24,8 @@
                             <th>No</th>
                             <th>Name</th>
                             <th>Email</th>
+                            <th>Phone</th>
+                            <th>Created At</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -35,6 +37,8 @@
                                     <strong>{{ $user->name }}</strong>
                                 </td>
                                 <td>{{ $user->email }}</td>
+                                <td>{{ $user->phone }}</td>
+                                <td>{{ $user->created_at }}</td>
                                 <td>
                                     <div class="dropdown">
                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
