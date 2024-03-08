@@ -28,6 +28,12 @@
                 <div data-i18n="Basic">Manage Users</div>
             </a>
         </li>
+        <li class="menu-item {{ request()->is('products*') ? 'active' : '' }}">
+            <a href="{{ route('products.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-package"></i>
+                <div data-i18n="Basic">Products</div>
+            </a>
+        </li>
 
         <!-- User interface -->
         <li class="menu-item">
