@@ -35,6 +35,8 @@ class UserController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email:dns|unique:users',
             'password' => 'required|min:6|max:255',
+            'phone' => 'required',
+            'roles' => 'required',
         ]);
 
         $validatedData['password'] = Hash::make($validatedData['password']);
@@ -71,6 +73,8 @@ class UserController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email:dns|unique:users,email,'.$manage_user->id,
             'password' => 'nullable|min:6|max:255',
+            'phone' => 'required',
+            'roles' => 'required'
         ];
     
         $validatedData = $request->validate($rules);

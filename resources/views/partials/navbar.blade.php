@@ -37,7 +37,7 @@
                                 </div>
                                 <div class="flex-grow-1">
                                     <span class="fw-semibold d-block">{{ auth()->user()->name }}</span>
-                                    <small class="text-muted">Admin</small>
+                                    <small class="text-muted">{{ ucfirst(auth()->user()->roles) }}</small>
                                 </div>
                             </div>
                         </a>

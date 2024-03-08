@@ -58,6 +58,37 @@
                                     </div>
                                 @enderror
                             </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="phone">Phone</label>
+                                <input type="text"
+                                    class="form-control @error('phone')
+                                is-invalid
+                            @enderror"
+                                    placeholder="Phone" name="phone" />
+                                @error('phone')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Roles</label>
+                                <div class="selectgroup w-100">
+                                    <label class="selectgroup-item">
+                                        <input type="radio" name="roles" value="user" class="selectgroup-input"
+                                            checked="">
+                                        <span class="selectgroup-button">User</span>
+                                    </label>
+                                    <label class="selectgroup-item">
+                                        <input type="radio" name="roles" value="admin" class="selectgroup-input">
+                                        <span class="selectgroup-button">Admin</span>
+                                    </label>
+                                    <label class="selectgroup-item">
+                                        <input type="radio" name="roles" value="staff" class="selectgroup-input">
+                                        <span class="selectgroup-button">Staff</span>
+                                    </label>
+                                </div>
+                            </div>
                             <button type="submit" class="btn btn-primary">Create</button>
                         </form>
                     </div>
