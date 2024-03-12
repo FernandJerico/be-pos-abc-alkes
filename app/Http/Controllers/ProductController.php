@@ -13,8 +13,9 @@ class ProductController extends Controller
      */
     public function index()
     {
+        $title = "Products";
         $products = Product::orderBy('id', 'desc')->get();
-        return view('products.index', compact('products'));
+        return view('products.index', compact('products', 'title'));
     }
 
     /**
@@ -22,7 +23,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $title = "Add Product";
+        return view('products.create', compact('title'));
     }
 
     /**
@@ -36,7 +38,7 @@ class ProductController extends Controller
             'price' => 'required',
             'stock' => 'required',
             'category' => 'required',
-            'image' => 'image|file|max:5120'
+            'image' => 'required|image|file|max:3072'
         ]);
 
         if($request->file('image')){
@@ -53,8 +55,9 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
+        $title = "Detail Product";
         $product = Product::find($id);
-        return view('products.show', compact('product'));
+        return view('products.show', compact('product', 'title'));
     }
 
     /**
@@ -62,8 +65,9 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
+        $title = "Edit Product";
         $product = Product::findOrFail($id);
-        return view('products.edit', compact('product'));
+        return view('products.edit', compact('product', 'title'));
     }
 
     /**

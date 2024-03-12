@@ -21,13 +21,15 @@ Route::get('/', function () {
 
 Route::middleware(['auth'])->group(function(){
     Route::get('home', function () {
-        return view('dashboard.index');
+        $title = "Dashboard";
+        return view('dashboard.index', compact('title'));
     })->name('home');
 
     Route::resource('manage-users', UserController::class);
     Route::resource('products', ProductController::class);
 
     Route::get('/profile', function () {
-        return view('profile.index');
+        $title = "Profile";
+        return view('profile.index', compact('title'));
     })->name('profile');
 });

@@ -14,8 +14,9 @@ class UserController extends Controller
      */
     public function index()
     {
+        $title = "Manage Users";
         $users = DB::table('users')->orderBy('id', 'desc')->get();
-        return view('manage-users.index', compact('users'));
+        return view('manage-users.index', compact('users', 'title'));
     }
 
     /**
@@ -23,7 +24,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('manage-users.create');
+        $title = "Create User";
+        return view('manage-users.create', compact('title'));
     }
 
     /**
@@ -51,8 +53,9 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
+        $title = "Detail User";
         $user = User::find($id);
-        return view('manage-users.show', compact('user'));
+        return view('manage-users.show', compact('user', 'title'));
     }
 
     /**
@@ -60,8 +63,9 @@ class UserController extends Controller
      */
     public function edit(string $id)
     {
+        $title = "Edit User";
         $user = User::findOrFail($id);
-        return view('manage-users.edit', compact('user'));
+        return view('manage-users.edit', compact('user', 'title'));
     }
 
     /**
