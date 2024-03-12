@@ -77,7 +77,7 @@ class ProductController extends Controller
             'price' => 'required',
             'stock' => 'required',
             'category' => 'required',
-            'image' => 'image|file|max:5120'
+            'image' => 'required|image|file|max:3072'
         ]);
 
         // Periksa apakah ada foto baru diunggah
