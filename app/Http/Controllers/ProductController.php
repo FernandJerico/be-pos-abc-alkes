@@ -38,7 +38,8 @@ class ProductController extends Controller
             'price' => 'required',
             'stock' => 'required',
             'category' => 'required',
-            'image' => 'required|image|file|max:3072'
+            'image' => 'required|image|file|max:3072',
+            'is_best_seller' => 'required',
         ]);
 
         if($request->file('image')){
@@ -81,7 +82,8 @@ class ProductController extends Controller
             'price' => 'required',
             'stock' => 'required',
             'category' => 'required',
-            'image' => 'required|image|file|max:3072'
+            'image' => 'image|file|max:3072',
+            'is_best_seller' => 'required',
         ]);
 
         // Periksa apakah ada foto baru diunggah

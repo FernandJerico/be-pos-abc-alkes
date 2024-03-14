@@ -27,7 +27,34 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'description' => 'required',
+            'price' => 'required',
+            'stock' => 'required',
+            'category' => 'required',
+            'image' => 'required|image|file|max:3072',
+            'is_best_seller' => 'required',
+        ]);
+
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('public/product-image');
+        }
+        
+        $product = Product::create($validatedData);
+        
+        if ($product) {
+            return response()->json([
+                'success' =>true,
+                'message' => 'Success Add Product',
+                'data' => $product,
+            ], 200);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'Product Failed to Save',
+            ], 409);
+        }
     }
 
     /**

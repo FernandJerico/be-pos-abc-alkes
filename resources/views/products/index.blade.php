@@ -40,7 +40,14 @@
                                 <td>Rp. {{ number_format($product->price, 0, ',', '.') }}</td>
                                 <td>{{ $product->stock }}</td>
                                 <td>{{ $product->category }}</td>
-                                <td><img src="{{ $product->image }}" alt="image" height="30"></td>
+                                <td>
+                                    @if ($product->image == null)
+                                        <img src="{{ asset('assets/img/avatars/no-photo.png') }}" alt="no-photo"
+                                            height="25">
+                                    @else
+                                        <img src="{{ Storage::url($product->image) }}" alt="photo" height="25">
+                                    @endif
+                                </td>
                                 <td>
                                     <div class="dropdown">
                                         <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
